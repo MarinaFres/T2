@@ -84,6 +84,29 @@ def mcd(numero1, numero2):
         mcd *= factor ** min(dicFact1[factor],dicFact2[factor])
     return mcd
 
+def mcmN(*numeros):
+    """
+    Devuelve el mínimo común múltiplo de sus argumentos.
+    >>> mcmN(42, 60, 70, 63)
+    1260
+    """
+    mcmN = numeros[0]
+    for i in range(1, len(numeros)):
+        mcmN = mcm(mcmN, numeros[i])
+    return mcmN
+
+
+def mcdN(*numeros):
+    """
+    Devuelve el máximo común divisor de sus argumentos.
+    >>> mcdN(840, 630, 1050, 1470)
+    210
+    """
+    mcdN = numeros[0]
+    for i in range(1, len(numeros)):
+        mcdN = mcd(mcdN, numeros[i])
+    return mcdN
+
 
 import doctest
 doctest.testmod()

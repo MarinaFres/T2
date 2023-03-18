@@ -69,7 +69,11 @@ comprobarse las siguientes condiciones:
 Inserte a continuación una captura de pantalla que muestre el resultado de ejecutar el fichero `primos.py` con la opción
 *verbosa*, de manera que se muestre el resultado de la ejecución de los tests unitarios.
 
+## Prueba 1
 <img src="img/Captura_de_pantalla.png" width="480" align="center">
+
+## Prueba 2
+<img src="img/Captura_prueba2.png" width="480" align="center">
 
 
 #### Código desarrollado
@@ -158,6 +162,29 @@ def mcd(numero1, numero2):
     for factor in  dicFact1 | dicFact2:
         mcd *= factor ** min(dicFact1[factor],dicFact2[factor])
     return mcd
+
+def mcmN(*numeros):
+    """
+    Devuelve el mínimo común múltiplo de sus argumentos.
+    >>> mcmN(42, 60, 70, 63)
+    1260
+    """
+    mcmN = numeros[0]
+    for i in range(1, len(numeros)):
+        mcmN = mcm(mcmN, numeros[i])
+    return mcmN
+
+
+def mcdN(*numeros):
+    """
+    Devuelve el máximo común divisor de sus argumentos.
+    >>> mcdN(840, 630, 1050, 1470)
+    210
+    """
+    mcdN = numeros[0]
+    for i in range(1, len(numeros)):
+        mcdN = mcd(mcdN, numeros[i])
+    return mcdN
 
 
 import doctest
